@@ -1,0 +1,53 @@
+.footer-container{
+ text-align: center;
+ position: absolute;
+ bottom:0;
+ width:100%;
+ padding-top: 15px;
+}
+.category{
+margin-left: 20px;
+}
+.navbar{
+ justify-content: flex-start !important;
+}
+.navbar a{
+ color:white !important;
+}
+.form-inline{
+margin-right: 2px;
+}
+.addBookTitle{
+ text-align: center;
+}
+.addBookContainer input,select{
+ margin-top: 10px;
+
+}
+.addBookContainer{
+   margin-left:20px;
+}
+.card-img-top{
+  width:auto !important;
+}
+.pcopyright{
+  padding-top: 7px;
+}
+.containerfooter{
+  height:125%;
+  margin-top: 5% ;
+  width:100% ;
+  text-align: center;
+  background-color: #343a40;
+  color:white;
+}
+.card{
+ width: 15rem;
+ margin: 20px;
+}
+.maindiv{
+ width:100%;
+ display:flex;
+ flex-wrap: wrap;
+ margin : 20px;
+}
