@@ -2,9 +2,12 @@ const express = require('express')
 const app = express()
 var bodyParser = require('body-parser')
 const PORT = 3001
+const bcrypt = require('bcryptjs');
+var cors = require('cors')
+const jwt = require('jsonwebtoken')
 // ======== parse application json =====
 app.use(bodyParser.json())
-
+app.use(cors())
 // ========== to enable CORS ===========
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
@@ -63,4 +66,64 @@ app.post('/updateBook/:id',function(req,res){
     console.log("Update is successful!")
     res.json({success:true})
   })
+})
+
+app.post('/register',function(req,res){
+  let email = req.body.email
+  let password = req.body.password
+
+  db.one('SELECT id,email,password FROM users WHERE email= $1',[email]).then(function(user){
+
+    res.json('Opps! This email is already taken. Please try with different credential!')
+
+  }).catch((error) => {
+    console.log(error.received)
+    if(error.received == 0){
+      bcrypt.hash(password, 10, function(err, hash) {
+
+          if(hash) {
+               db.none('INSERT INTO users (email,password) VALUES ($1,$2)',[email,hash]).then(()=>{
+                 res.json({success: true})   //bu ifade client side da gozukecek response
+             // then function'in parametresi bos birakildi, cunku db.none response vermez
+           })
+
+          }
+
+      });
+    }
+  })
+
+})
+
+app.post('/login',function(req,res){
+ let email = req.body.email
+ let password = req.body.password
+
+db.one('SELECT id,email,password FROM users WHERE email = $1',[email]).then((response)=>{
+      console.log('User is found')
+     // check for the password
+     bcrypt.compare(password,response.password,function(error,result){
+       if(result) {
+         // password match
+
+         // create a token
+         const token = jwt.sign({ email : response.email },"somesecretkey")
+
+         // send back the token to the user
+         res.json({token: token})
+
+       } else {
+         // password dont match
+         res.json('The password you entered is incorrect!')
+       }
+     })
+
+}).catch((error)=>{
+ console.log(error)
+ console.log(error.received)
+ if(error.received == 0){
+    res.json('The email you entered is invalid!')
+   }
+
+})
 })

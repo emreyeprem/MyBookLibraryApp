@@ -74,16 +74,16 @@ UpdateBook = (e) => {
      <div className="inputContainer">
       <h2 className="addBook">Update Book Info</h2><hr/>
       <label>Enter Book Title :</label>
-      <input onChange={this.UpdateBook} type="text" name="booktitle" defaultValue={this.state.books.booktitle}/><br/>
+      <input className="updateBoxes" onChange={this.UpdateBook} type="text" name="booktitle" defaultValue={this.state.books.booktitle}/><br/>
 
       <label>Enter Published Date :</label>
-      <input onChange={this.UpdateBook} type="date" name="publisheddate" defaultValue={this.state.books.year}/><br/>
+      <input className="updateBoxes" onChange={this.UpdateBook} type="date" name="publisheddate" defaultValue={this.state.books.year}/><br/>
 
       <label>Enter Author :</label>
-      <input onChange={this.UpdateBook} type="text" name="author" defaultValue={this.state.books.author}/><br/>
+      <input className="updateBoxes" onChange={this.UpdateBook} type="text" name="author" defaultValue={this.state.books.author}/><br/>
 
       <label>Enter Img URL :</label>
-      <input onChange={this.UpdateBook} type="text" name="imageurl" defaultValue={this.state.books.imageurl}/><br/>
+      <input className="updateBoxes" onChange={this.UpdateBook} type="text" name="imageurl" defaultValue={this.state.books.imageurl}/><br/>
 
       <label>Choose genre of the book</label>
       <select name="category" onChange={this.UpdateBook}>

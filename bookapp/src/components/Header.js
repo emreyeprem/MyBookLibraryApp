@@ -6,7 +6,7 @@ export class Header extends Component {
   render() {
     return (
 
-      <nav className="navbar navbar-light bg-dark justify-content-between text-white">
+      <nav style={this.props.headerStyle} className="navbar navbar-light bg-dark justify-content-between text-white">
 
    <Link to = "/" className="navbar-brand">All Books</Link>
    <Link to = "/" className="navbar-brand cat">Fiction</Link>

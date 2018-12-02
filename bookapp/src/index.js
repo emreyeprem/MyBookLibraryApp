@@ -10,6 +10,8 @@ import {Footer} from './components/Footer'
 import {UpdateBook} from './components/UpdateBook'
 import {AllBooks} from './components/AllBooks'
 import {AddBook} from './components/AddBook'
+import {Login} from './components/Login'
+import {Register} from './components/Register'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
 
@@ -23,6 +25,8 @@ ReactDOM.render(
      <Route exact path="/" component={AllBooks} />
      <Route path="/add-book" component={AddBook} />
      <Route path="/update-book/:bookId" component={UpdateBook} />
+     <Route path="/login" component={Login} />
+     <Route path="/register" component={Register} />
 
    </Switch>
  </BaseLayout>
