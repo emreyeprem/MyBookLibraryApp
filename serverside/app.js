@@ -27,19 +27,44 @@ app.listen(PORT, function(){
 })
 // ==========================================================
 
+//--------middleware------------------
+function authenticate(req,res,next) {
+  // authorization should be lower case
+  let authorizationHeader = req.headers["authorization"]
+console.log(authorizationHeader)
+  console.log("in authenticate function "+ authorizationHeader)
+  if(!authorizationHeader) {
+    res.status(400).json({error: 'Authorization failed!'})
+    return
+  }
+  // Bearer token
+  const token = authorizationHeader.split(' ')[1] // token
+  jwt.verify(token,'somesecretkey',function(error,decoded){
+    if(decoded){
+      userId = decoded.id
+      db.one('SELECT id,email,password FROM users WHERE id = $1',[userId]).then((response)=>{
+        next()
+      }).catch((error)=>{
+        res.status(400).json({error: 'User does not exist!'})
+      })
+    }
+  })
+}
+//----------------------------------------
+
 app.post('/addBook',function(req,res){
    let title = req.body.title
    let author = req.body.author
    let category = req.body.category
    let year = req.body.year
    let image = req.body.image
-   db.none('INSERT INTO books (booktitle,publisheddate,imageurl,category,author) VALUES ($1,$2,$3,$4,$5)',[title,year,image,category,author]).then(function(){
+   db.none('INSERT INTO books (booktitle,publisheddate,imageurl,category,author,userid) VALUES ($1,$2,$3,$4,$5,$6)',[title,year,image,category,author,userId]).then(function(){
      res.json({success:true})
    })
 })
 
-app.get('/api/getBooks',function(req,res){
-  db.any('SELECT id,booktitle,publisheddate,imageurl,category,author FROM books').then(function(response){
+app.get('/api/getBooks',authenticate,function(req,res){
+  db.any('SELECT id,booktitle,publisheddate,imageurl,category,author FROM books WHERE userid = $1',[userId]).then(function(response){
 
       res.json(response)
 
@@ -62,7 +87,7 @@ app.post('/updateBook/:id',function(req,res){
   let imageUrl = req.body.imageUrl
   let category = req.body.category
 
-  db.none('UPDATE books SET booktitle=$1,author=$2,publisheddate=$3,imageurl=$4,category=$5 WHERE id = $6', [title,author,publisheddate,imageUrl,category,id]).then(()=>{
+  db.none('UPDATE books SET booktitle=$1,author=$2,publisheddate=$3,imageurl=$4,category=$5,userid=$6 WHERE id = $7', [title,author,publisheddate,imageUrl,category,userId,id]).then(()=>{
     console.log("Update is successful!")
     res.json({success:true})
   })
@@ -107,7 +132,7 @@ db.one('SELECT id,email,password FROM users WHERE email = $1',[email]).then((res
          // password match
 
          // create a token
-         const token = jwt.sign({ email : response.email },"somesecretkey")
+         const token = jwt.sign({ id : response.id },"somesecretkey")
 
          // send back the token to the user
          res.json({token: token})

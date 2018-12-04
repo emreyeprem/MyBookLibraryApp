@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {setAuthenticationToken} from '../utils'
+import axios from 'axios'
 
 export class AllBooks extends Component {
 
@@ -14,12 +16,14 @@ export class AllBooks extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001/api/getBooks').then((response)=>{
-      return response.json()}).then((json)=>{
-        console.log(json)
+    let token = localStorage.getItem('jsonwebtoken')
+      console.log(token)
+      setAuthenticationToken(token)
+      axios.get("http://localhost:3001/api/getBooks").then((res)=> {
+        console.log(res.data)
         this.setState({
-          books : json
-        })
+           books: res.data
+           })
       })
     }
 

@@ -112,12 +112,12 @@ margin-right: 2px;
   padding-top: 7px;
 }
 .containerfooter{
-  height:125%;
-  margin-top: 5% ;
+  height:175%;
+  margin-top: 9% ;
   width:100% ;
   text-align: center;
   background-color: #343a40;
-  color:white;
+  color:white !important;
 }
 .card{
  width: 15rem;
@@ -152,4 +152,12 @@ body{
 .updateBoxes{
   border-style: solid;
   border-color: cyan;
+}
+.topHeader{
+
+  display: flex !important;
+  flex-direction: row !important;
+}
+.cat{
+
 }

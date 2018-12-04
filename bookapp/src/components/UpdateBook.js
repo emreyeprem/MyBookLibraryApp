@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { setAuthenticationToken } from '../utils'
+import axios from 'axios'
 
 
 export class UpdateBook extends Component {
@@ -12,20 +14,20 @@ export class UpdateBook extends Component {
 
   componentDidMount() {
 
+  let token = localStorage.getItem("jsonwebtoken")
+  setAuthenticationToken(token) // set header for to be used when axios lib is used
+
 let bookId = this.props.match.params.bookId
-fetch('http://localhost:3001/api/getBooks').then((response)=>{
-  return response.json()
-}).then((json)=>{
-    let bookToUpdate= json.find((book)=>{
-      return book.id == bookId
-    })
-    console.log(bookToUpdate)
-    this.setState({
-      books:bookToUpdate
-    })
+axios('http://localhost:3001/api/getBooks').then((response)=>{
+     let bookToUpdate= response.data.find((book)=>{
+       return book.id == bookId
 
-})
-
+   })
+   console.log(bookToUpdate)
+   this.setState({
+     books:bookToUpdate
+   })
+ })
 }
 //function updateBook(e){}  kisa hali..
 UpdateBook = (e) => {
