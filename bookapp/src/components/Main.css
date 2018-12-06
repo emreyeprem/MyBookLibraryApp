@@ -1,163 +1,93 @@
-@media (max-width: 992px) {
-  .wrap-login100 {
-    padding: 177px 90px 33px 85px;
-  }
-
-  .login100-pic {
-    width: 35%;
-  }
-
-  .login100-form {
-    width: 50%;
-  }
-}
-
-@media (max-width: 768px) {
-  .wrap-login100 {
-    padding: 100px 80px 33px 80px;
-  }
-
-  .login100-pic {
-    display: none;
-  }
-
-  .login100-form {
-    width: 100%;
-  }
-}
-
-@media (max-width: 576px) {
-  .wrap-login100 {
-    padding: 100px 15px 33px 15px;
-  }
-}
-
-.limiter {
-  width: 100%;
-  margin: 0 auto;
-}
-
-.container-login100 {
-
-  width: 100%;
-  min-height: 100vh;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-  background: #9053c7;
-  background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
-  background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
-  background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
-  background: linear-gradient(-135deg, #c850c0, #4158d0);
-}
-
-.wrap-login100 {
-  width: 960px;
-  background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 177px 130px 33px 95px;
-}
-
-
-/* ====================================== */
-
 .footer-container{
- text-align: center;
- position: absolute;
- bottom:0;
- width:100%;
- padding-top: 15px;
+  text-align: center;
+  position: absolute;
+  bottom:0;
+  width:100%;
+  padding-top: 15px;
 }
 .category{
 margin-left: 20px;
 }
 .navbar{
- justify-content: flex-start !important;
+  justify-content: flex-start !important;
 }
 .navbar a{
- color:white !important;
+  color:white !important;
 }
 .form-inline{
 margin-right: 2px;
 }
 .addBookTitle{
- text-align: center;
+  text-align: center;
 }
 .addBookContainer input,select{
- margin-top: 10px;
+  margin-top: 10px;
 
-}
-.addBookContainer{
-   margin-left:20px;
-}
-.card-img-top{
-  width:auto !important;
-}
-.pcopyright{
-  padding-top: 7px;
-}
-.containerfooter{
-  height:175%;
-  margin-top: 9% ;
-  width:100% ;
-  text-align: center;
-  background-color: #343a40;
-  color:white !important;
-}
-.card{
- width: 15rem;
- margin: 20px;
-}
-.maindiv{
- width:100%;
- display:flex;
- flex-wrap: wrap;
- margin : 20px;
-}
-.login100-pic{
-  margin-bottom: 100px;
-}
-body{
-  font-family: 'Comfortaa', cursive;
-}
-.registergreeting{
-
-}
-.greetingContainer{
-  text-align:center;
-  color:white;
-  display:flex;
-  flex-direction: column;
 }
 .message{
   color:red;
   font-size: 15px;
-  margin-top:15px;
+  margin-top: 10px;
 }
-.updateBoxes{
-  border-style: solid;
-  border-color: cyan;
+.greetingContainer{
+  color:white;
+  display:flex;
+  flex-direction: column;
+  text-align: center;
+  font-family: 'Comfortaa', cursive !important;
 }
-.topHeader{
+.addBookContainer{
+    margin-left:20px;
+}
+.login100-pic{
+  margin-bottom: 100px;
+}
+.card{
+  width: 15rem;
+  margin: 20px;
+  transform: scale(0.8);
+}
+.maindiv{
+  width:100%;
+  display:flex;
+  flex-wrap: wrap;
 
-  display: flex !important;
-  flex-direction: row !important;
+  margin-right:20px;
+  margin-top: -50px;
 }
-.cat{
 
+.card-text{
+  text-align: center !important;
+}
+.btn-div{
+  display:flex;
+  justify-content: space-around;
+  margin-bottom: 0px !important;
+    position:  absolute;
+    bottom: 10px;
+}
+.buttons{
+  margin-right: 70px;
+  padding-top: 10px;
+}
+.addButton{
+  margin-left: 45px;
+}
+.car-title{
+
+  font-size: 20px;
+}
+.containerfooter{
+
+  margin-top:5%;
+  width:100%;
+  text-align: center;
+  background-color:rgb(38, 51, 64);
+  color:white;
+  padding-top:5px;
+  position:absolute;
+  bottom:0;
+}
+.card-img-top{
+  height:50%;
 }
