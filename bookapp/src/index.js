@@ -8,6 +8,7 @@ import AddBook from './components/AddBook'
 import AllBooks from './components/AllBooks'
 import Footer from './components/Footer'
 import Header from './components/Header'
+import Search from './components/Search'
 import {UpdateBook} from './components/UpdateBook'
 import Login from './components/Login'
 import {Register} from './components/Register'
@@ -26,6 +27,7 @@ ReactDOM.render(
 
     <Switch>
       <Route exact path="/" component={AllBooks} />
+      <Route path="/search" component={Search} />
       <Route path="/login" component={Login}/>
       <Route path="/register" component={Register}/>
       <Route path="/add-book" component={AddBook} />

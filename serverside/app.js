@@ -59,6 +59,20 @@ function authenticate(req,res,next) {
 
 }
 //----------------------------------------
+app.get('/getSearchBook/:bookTitle',function(req,res){
+   let searchedbooktitle = req.params.bookTitle
+   db.any('SELECT id,booktitle,publisheddate,imageurl,category,author FROM books WHERE userid = $1',[userId]).then(function(response){
+       let searchedBooks = response.filter((each)=>{
+         if(each.booktitle.toLowerCase().includes(searchedbooktitle.toLowerCase()) == true){
+         return each
+       }
+       })
+       console.log(searchedBooks)
+       res.json(searchedBooks)
+
+   })
+})
+
 
 app.post('/addBook',function(req,res){
   let title = req.body.title

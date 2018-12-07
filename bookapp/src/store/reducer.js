@@ -21,6 +21,12 @@ const reducer = (state = initialState, action) => {
    url: `http://localhost:3050/api/getBooks/${action.genre}`
 
 }
+} else if(action.type == "SEARCHVALUE"){
+ return {  ...state,
+   searchValue : action.searchBoxValue
+
+
+}
 }
 
  return state
