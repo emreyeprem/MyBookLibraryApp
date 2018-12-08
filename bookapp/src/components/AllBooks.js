@@ -81,7 +81,7 @@ class AllBooks extends Component {
       return <div className="card">
        <img id="pictures" className="card-img-top" src={each.imageurl} alt="Card image cap" />
        <div className="card-body">
-       <div className="cardTitle">
+       <div className="card-title">
          <h3 className="card-text car-title">{each.booktitle}</h3>
          </div>
          <p className="card-text"><b>Author:</b> {each.author}</p>
@@ -93,6 +93,7 @@ class AllBooks extends Component {
          </div>
        </div>
      </div>
+
     })
     return (
 

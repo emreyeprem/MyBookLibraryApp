@@ -1,9 +1,36 @@
-.footer-container{
+body{
+  height:100%;
+  position: relative;
+  padding:0;
+  margin:0;
+}
+.mainContainer{
+  min-height:100%;
+  /* position: relative; */
+}
+.card h3 {
+  font-size:20px;
+  text-overflow:ellipsis;
+
+  white-space:nowrap;
+  overflow:hidden;
+
+}
+.card-text{
+  margin-bottom: 10px !important;
+}
+.containerfooter{
   text-align: center;
-  position: absolute;
+  position: fixed;
   bottom:0;
   width:100%;
-  padding-top: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  left:0;
+  right:0;
+  text-align: center;
+  background-color:rgb(38, 51, 64);
+  color:white;
 }
 .category{
 margin-left: 20px;
@@ -43,17 +70,17 @@ margin-right: 2px;
   margin-bottom: 100px;
 }
 .card{
-  width: 15rem;
-  margin: 20px;
+  width: 350px;
+
   transform: scale(0.8);
 }
 .maindiv{
   width:100%;
   display:flex;
   flex-wrap: wrap;
-
+  justify-content: center;
   margin-right:20px;
-  margin-top: -50px;
+
 }
 
 .card-text{
@@ -61,10 +88,11 @@ margin-right: 2px;
 }
 .btn-div{
   display:flex;
-  justify-content: space-around;
+  margin-top: 30px;
   margin-bottom: 0px !important;
-    position:  absolute;
-    bottom: 10px;
+  margin-left: 50px;
+
+
 }
 .buttons{
   margin-right: 70px;
@@ -72,22 +100,17 @@ margin-right: 2px;
 }
 .addButton{
   margin-left: 45px;
+  margin-top: 2%;
 }
 .car-title{
 
   font-size: 20px;
 }
-.containerfooter{
-
-  margin-top:5%;
-  width:100%;
-  text-align: center;
-  background-color:rgb(38, 51, 64);
-  color:white;
-  padding-top:5px;
-  position:absolute;
-  bottom:0;
-}
 .card-img-top{
   height:50%;
+}
+@media screen and (max-width:840px){
+  .mainContainer{
+
+  }
 }
