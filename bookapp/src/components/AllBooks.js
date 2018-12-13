@@ -81,7 +81,7 @@ class AllBooks extends Component {
       return <div className="card">
        <img id="pictures" className="card-img-top" src={each.imageurl} alt="Card image cap" />
        <div className="card-body">
-       <div className="card-title">
+       <div className="cardTitle">
          <h3 className="card-text car-title">{each.booktitle}</h3>
          </div>
          <p className="card-text"><b>Author:</b> {each.author}</p>
@@ -92,20 +92,17 @@ class AllBooks extends Component {
          <button onClick={() => this.edit(each.id)} className="btn btn-warning buttons">Edit</button>
          </div>
        </div>
-     </div>
 
+     </div>
     })
     return (
 
 
       <div>
       <div className="maindiv">
-       {books}
-
+       {books} <br/>
+      <button onClick={this.addBookButton} className="addButton btn btn-warning">Add Book</button>
       </div>
-
-    <button onClick={this.addBookButton} className="addButton btn btn-warning">Add Book</button>
-
       </div>
 
     )
