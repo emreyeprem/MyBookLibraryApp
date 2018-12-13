@@ -11,7 +11,7 @@
 <img src="MyLibrary.png" height="400px" width="600px">
    
 ## Live link: 
-- ["MY BOOK LIBRARY APP"](https://mybooklibraryapp.herokuapp.com/)
+- ["MY BOOK LIBRARY APP"](https://mybooklibraryapp.herokuapp.com/login)
 
 ## Introduction video of the project: 
 - https://youtu.be/Iq2LGrzpNpQ
